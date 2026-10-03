@@ -1,24 +1,39 @@
 from datetime import timedelta
 
 
-def chunk_subtitles(subtitles, max_duration=30):
+def chunk_subtitles(subtitles, max_duration=45, overlap_duration=15):
     chunks = []
-    current_entries = []
+    if not subtitles:
+        return chunks
 
-    for subtitle in subtitles:
-        current_entries.append(subtitle)
+    i = 0
+    n = len(subtitles)
 
-        start = current_entries[0]["start"]
-        end = subtitle["end"]
+    while i < n:
+        chunk_entries = []
+        start_time = subtitles[i]["start"]
 
-        duration = end - start
+        j = i
+        while j < n:
+            chunk_entries.append(subtitles[j])
+            duration = (subtitles[j]["end"] - start_time).total_seconds()
+            if duration >= max_duration:
+                break
+            j += 1
 
-        if duration.total_seconds() >= max_duration:
-            chunks.append(create_chunk(current_entries))
-            current_entries = []
+        chunks.append(create_chunk(chunk_entries))
 
-    if current_entries:
-        chunks.append(create_chunk(current_entries))
+        # Advance i such that there is overlap
+        next_i = i + 1
+        while next_i < j:
+            if (subtitles[next_i]["start"] - start_time).total_seconds() >= (max_duration - overlap_duration):
+                break
+            next_i += 1
+
+        if next_i <= i:
+            next_i = i + 1
+
+        i = next_i
 
     return chunks
 
