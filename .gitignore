@@ -1,4 +1,20 @@
+# Python
 .venv/
+venv/
 __pycache__/
-.env
 *.pyc
+*.pyo
+
+# Environment
+.env
+
+# Vector DB & Cache
+chroma_db/
+*.log
+
+# Generated logs & local artifacts
+data/mcp_email_dispatch_log.json
+
+# OS files
+.DS_Store
+Thumbs.db

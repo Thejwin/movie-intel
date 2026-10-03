@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 
-def chunk_subtitles(subtitles, max_duration=45, overlap_duration=15):
+def chunk_subtitles(subtitles, max_duration=60, overlap_duration=20):
     chunks = []
     if not subtitles:
         return chunks
