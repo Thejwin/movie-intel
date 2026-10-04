@@ -1,4 +1,8 @@
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from rag_engine import MovieRAGEngine
 from mcp_email_tool import MCPEmailTool
 from router import AgenticRouter

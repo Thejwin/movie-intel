@@ -264,5 +264,43 @@
         "dialogue_snippet": "[Scene Summary]\nSteve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.\n\n[Dialogue]\nROGERS: On you"
       }
     ]
+  },
+  {
+    "timestamp": "2026-10-04T00:04:12.458536",
+    "mcp_tool": "send_email",
+    "status": "DISPATCHED",
+    "recipient": "producer@marvel.com",
+    "subject": "Movie Intel Scene Breakdown: the morning run scene breakdown",
+    "body": "Hello,\n\nHere is the requested movie scene breakdown:\n\nBased on retrieved movie data for 'captain_america2' between 2:01:26.738000 and 2:02:44.983000: Summary: 'Steve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.'\nKey dialogue snippet:\n\"[Scene Summary]\nSteve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.\n\n[Dialogue]\n(R&B MUSIC PLA...\"\n\n[Source Citation: captain_america2 (2:01:26.738000 -> 2:02:44.983000)]\n\n--- Citations ---\n- Movie: captain_america2 | Timestamp: 2:01:26.738000 -> 2:02:44.983000\n- Movie: captain_america2 | Timestamp: 0:02:14.385000 -> 0:03:14.612000\n- Movie: captain_america2 | Timestamp: 0:01:31.342000 -> 0:02:35.906000\n- Movie: captain_america2 | Timestamp: 0:00:48.799000 -> 0:01:49.694000\n",
+    "citations": [
+      {
+        "movie": "captain_america2",
+        "start": "2:01:26.738000",
+        "end": "2:02:44.983000",
+        "summary": "Steve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.",
+        "dialogue_snippet": "[Scene Summary]\nSteve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.\n\n[Dialogue]\n(R&B MUSIC PLA"
+      },
+      {
+        "movie": "captain_america2",
+        "start": "0:02:14.385000",
+        "end": "0:03:14.612000",
+        "summary": "Steve Rogers chats with Sam Wilson after their morning run, discussing Marvin Gaye, music recommendations, and adapting to modern life after service.",
+        "dialogue_snippet": "[Scene Summary]\nSteve Rogers chats with Sam Wilson after their morning run, discussing Marvin Gaye, music recommendations, and adapting to modern life after service.\n\n[Dialogue]\nHow long?\nTwo tours.\nY"
+      },
+      {
+        "movie": "captain_america2",
+        "start": "0:01:31.342000",
+        "end": "0:02:35.906000",
+        "summary": "Steve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.",
+        "dialogue_snippet": "[Scene Summary]\nSteve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.\n\n[Dialogue]\nI guess I got "
+      },
+      {
+        "movie": "captain_america2",
+        "start": "0:00:48.799000",
+        "end": "0:01:49.694000",
+        "summary": "Steve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.",
+        "dialogue_snippet": "[Scene Summary]\nSteve Rogers (Captain America) goes for a morning run around Washington D.C., repeatedly passing veteran Sam Wilson on the track while saying 'On your left'.\n\n[Dialogue]\nROGERS: On you"
+      }
+    ]
   }
 ]

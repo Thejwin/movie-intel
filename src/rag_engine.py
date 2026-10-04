@@ -1,4 +1,8 @@
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from parser import parse_srt
 from chunker import chunk_subtitles
 from enricher import enrich_chunks, call_gemini_api

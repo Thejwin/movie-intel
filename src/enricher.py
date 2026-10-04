@@ -32,7 +32,7 @@ def _get_chunk_hash(chunk):
 
 
 def call_gemini_api(prompt, api_key):
-    """Calls Gemini REST API directly using requests to avoid extra dependency issues."""
+    """Calls Gemini REST API directly using requests with network error handling."""
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     headers = {"Content-Type": "application/json"}
     payload = {
@@ -45,23 +45,21 @@ def call_gemini_api(prompt, api_key):
         }
     }
     
-    response = requests.post(url, headers=headers, json=payload, timeout=30)
-    if response.status_code == 200:
-        res_json = response.json()
-        try:
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=10)
+        if response.status_code == 200:
+            res_json = response.json()
             return res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
-        except (KeyError, IndexError):
-            return None
-    else:
-        # Fallback to gemini-1.5-flash if 2.5 endpoint differs in some regions
-        url_fallback = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
-        res_fb = requests.post(url_fallback, headers=headers, json=payload, timeout=30)
-        if res_fb.status_code == 200:
-            res_json = res_fb.json()
-            try:
+        else:
+            url_fallback = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+            res_fb = requests.post(url_fallback, headers=headers, json=payload, timeout=10)
+            if res_fb.status_code == 200:
+                res_json = res_fb.json()
                 return res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
-            except (KeyError, IndexError):
-                return None
+    except Exception as e:
+        # Gracefully return None on network connection error or timeout
+        return None
+
     return None
 
 
