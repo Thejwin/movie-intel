@@ -33,7 +33,7 @@ def _get_chunk_hash(chunk):
 
 def call_gemini_api(prompt, api_key):
     """Calls Gemini REST API directly using requests with network error handling."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={api_key}"
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{
@@ -51,7 +51,7 @@ def call_gemini_api(prompt, api_key):
             res_json = response.json()
             return res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
         else:
-            url_fallback = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+            url_fallback = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
             res_fb = requests.post(url_fallback, headers=headers, json=payload, timeout=10)
             if res_fb.status_code == 200:
                 res_json = res_fb.json()
